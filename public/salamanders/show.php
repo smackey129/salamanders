@@ -1,5 +1,5 @@
 <?php require_once('../../private/initialize.php'); 
-
+//comment
 $id = $_GET['id'] ?? 1;
 $page_title = 'Salamander Details';
 include(SHARED_PATH . '/salamander-header.php');
