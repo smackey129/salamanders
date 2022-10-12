@@ -1,7 +1,7 @@
 <?php 
 
 require_once("../../private/initialize.php");
-//comment
+
 
 $salamanders[] = ['id' => '1', 'salamanderName' => 'Red-Legged Salamander'];
 $salamanders[] = ['id' => '2', 'salamanderName' => 'Pigeon Mountain Salamander'];
