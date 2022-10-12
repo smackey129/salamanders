@@ -1,26 +1,8 @@
 <?php 
 
-
-// Your code here.
-
-// Write 3 lines of code
-
-// 1.)
-// * Use require_once and reference the initialize.php as in the tutorial. 
-// * Use a relative path. 
-
 require_once("../private/initialize.php");
 
-// 2.)  
-// * Create a variable for page title. Make its value "Home"  
-// * Reference the salamander-header.php page to see the variable name 
-// spelling and capitalization
-
 $page_title = "Home";
-
-// 3.) 
-// * Use include_once to reference the salamander-header.php file
-// * User relative address
 
 include_once(SHARED_PATH . "/salamander-header.php");
 
