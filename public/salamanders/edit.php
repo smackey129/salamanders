@@ -2,14 +2,16 @@
 
 require_once('../../private/initialize.php');
 
-$test = $_GET['test'] ?? '';
-
-if($test == '404') {
-  error_404();
-} elseif($test == '500') {
-  error_500();
-} elseif($test == 'redirect') {
+if(!isset($_GET['id'])) {
   redirect_to(url_for('/salamanders/index.php'));
+}
+$id = $_GET['id'];
+$name = '';
+
+if(is_post_request()) {
+  $name = $_POST['salamanderName'];
+
+  echo "Salamander Name: $name";
 }
 
 $page_title = 'Edit Salamander';
@@ -25,12 +27,12 @@ require_once(SHARED_PATH .'/salamander-header.php');
   <div class="subject edit">
     <h1>Edit Salamander</h1>
 
-    <form action="<?php echo url_for('/salamanders/create.php'); ?>" method="post">
+    <form action="<?= url_for('/salamanders/edit.php?id=' . h(u($id))); ?>" method="post">
       <label for="salamanderName">Name</label>
       <br>
-      <input type="text" name="salamanderName" id="salamanderName">
+      <input type="text" name="salamanderName" id="salamanderName" value="<?= h($name);?>">
       <br>
-      <input type="submit" value="Create Salamander">
+      <input type="submit" value="Edit Salamander">
     </form>
 
   </div>
