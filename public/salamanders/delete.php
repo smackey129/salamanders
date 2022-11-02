@@ -14,7 +14,7 @@ if(is_post_request()) {
   echo "Salamander Name: $name";
 }
 
-$page_title = 'Edit Salamander';
+$page_title = 'Delete Salamander';
 require_once(SHARED_PATH .'/salamander-header.php');
 ?>
 
@@ -25,9 +25,9 @@ require_once(SHARED_PATH .'/salamander-header.php');
 
   <p><a href=<?=url_for('salamanders/index.php') ?>>&laquo; Back to Salamander List</a></p>
   <div class="subject edit">
-    <h1>Stub for Edit Salamander</h1>
+    <h1>Stub for Delete Salamander</h1>
 
-    <!-- <form action="<?= url_for('/salamanders/edit.php?id=' . h(u($id))); ?>" method="post">
+    <!-- <form action="<?= url_for('/salamanders/delete.php?id=' . h(u($id))); ?>" method="post">
       <label for="salamanderName">Name</label>
       <br>
       <input type="text" name="salamanderName" id="salamanderName" value="<?= h($name);?>">
