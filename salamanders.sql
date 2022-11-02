@@ -16,11 +16,3 @@ INSERT INTO `salamander` (`id`, `name`, `habitat`, `description` ) VALUES
 (3, 'Pigeon Mountain Salamander', 'These three species are very common in the Blue Ridge Mountains of western North Carolina. Ocoee salamanders are found in southwestern North Carolina and are separated from the Carolina mountain dusky salamander by the Pigeon River.', 'These three species were all formerly considered to be a single species, Desmognathus ochrophaeus. All three of these species exhibit highly variable coloration and are best separated from one another by location.'),
 (4, 'Slimy Salamander', 'Slimy salamanders are entirely terrestrial.  In North Carolina, these salamanders are most abundant in moist forest floor habitats in deciduous forests but may be found in pine forests, bottomland hardwood forests, and caves. ', 'The slimy salamander was formerly considered a single species but has since been divided into a complex of closely related species.  Six of these species may be found in North Carolina but they are often indistinguishable in the field.'),
 (5, 'Green Salamander', 'Green salamanders typically inhabit moist, shady crevices in cliffs and rock faces. In North Carolina, the green salamander is found only in a small mountainous region in the southwestern corner of the state.', 'The green salamander has an unmistakeable lichen-like pattern of green or yellow-green on a dark background. This salamander is laterally flattened and has squared toe tips.');
-
---
--- Indexes for table `salamander`
---
-ALTER TABLE `salamander`
-  ADD PRIMARY KEY (`id`);
-
-FLUSH PRIVILEGES;
