@@ -9,7 +9,7 @@ if($test == '404') {
 } elseif($test == '500') {
   error_500();
 } elseif($test == 'redirect') {
-  redirect_to(url_for('/salamanders/index.php'));
+  redirect_to(url_for('salamanders/index.php'));
 }
 
 $page_title = 'Create Salamander';
@@ -23,15 +23,23 @@ require_once(SHARED_PATH .'/salamander-header.php');
 
   <p><a href=<?=url_for('salamanders/index.php') ?>>&laquo; Back to Salamander List</a></p>
   <div class="subject new">
-    <h1>Stub for Create Salamander</h1>
+    <h1>Create Salamander</h1>
 
-    <!-- <form action="<?php echo url_for('/salamanders/create.php'); ?>" method="post">
-      <label for="salamanderName">Name</label>
+    <form action="<?php echo url_for('salamanders/create.php'); ?>" method="post">
+      <label for="salamanderName">Name:</label>
       <br>
       <input type="text" name="salamanderName" id="salamanderName">
+      <br><br>
+      <label for="habitat">Habitat:</label>
       <br>
+      <textarea rows="4" cols="50" name="habitat" id="habitat"></textarea>
+      <br><br>
+      <label for="description">Description:</label>
+      <br>
+      <textarea rows="4" cols="50" name="description" id="description"></textarea>
+      <br><br>
       <input type="submit" value="Create Salamander">
-    </form> -->
+    </form>
 
   </div>
 
