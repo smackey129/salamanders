@@ -1,2 +1,2 @@
-private/db_credentials.php
+private/my_db_credentials.php
 dbconnect.php
