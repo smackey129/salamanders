@@ -1,13 +1,7 @@
 <?php require_once('../../private/initialize.php'); 
 
 $id = $_GET['id'] ?? 1;
-$sql = "SELECT * FROM salamander ";
-$sql .= "WHERE id ='". $id . "'";
-$result = mysqli_query($db, $sql);
-confirm_result_set($result);
-
-$subject = mysqli_fetch_assoc($result);
-mysqli_free_result($result);
+$subject = find_salamander_by_id($id);
 $page_title = 'Salamander Details';
 include(SHARED_PATH . '/salamander-header.php');
 ?>
