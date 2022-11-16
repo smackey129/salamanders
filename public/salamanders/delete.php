@@ -6,12 +6,12 @@ if(!isset($_GET['id'])) {
   redirect_to(url_for('/salamanders/index.php'));
 }
 $id = $_GET['id'];
-$name = '';
 
 if(is_post_request()) {
-  $name = $_POST['salamanderName'];
-
-  echo "Salamander Name: $name";
+  $result = delete_salamander($id);
+  redirect_to(url_for('salamanders/index.php'));
+} else {
+  $salamander = find_salamander_by_id($id);
 }
 
 $page_title = 'Delete Salamander';
@@ -25,15 +25,12 @@ require_once(SHARED_PATH .'/salamander-header.php');
 
   <p><a href=<?=url_for('salamanders/index.php') ?>>&laquo; Back to Salamander List</a></p>
   <div class="subject edit">
-    <h1>Stub for Delete Salamander</h1>
-
-    <!-- <form action="<?= url_for('/salamanders/delete.php?id=' . h(u($id))); ?>" method="post">
-      <label for="salamanderName">Name</label>
-      <br>
-      <input type="text" name="salamanderName" id="salamanderName" value="<?= h($name);?>">
-      <br>
-      <input type="submit" value="Edit Salamander">
-    </form> -->
+    <h1>Delete Salamander</h1>
+    <p>Are you sure you want to delete this salamander?</p>
+    <p><?= $salamander['name']?></p>
+    <form action="<?= url_for('salamanders/delete.php?id=' . h(u($id))); ?>" method="post">
+      <input type="submit" value="Delete Salamander">
+    </form>
 
   </div>
 
