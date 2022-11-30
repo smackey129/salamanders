@@ -66,6 +66,7 @@
         exit;
       }
   }
+  
   function find_all_salamanders() {
     global $db;
 
