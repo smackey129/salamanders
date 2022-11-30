@@ -12,6 +12,22 @@ if($test == '404') {
   redirect_to(url_for('salamanders/index.php'));
 }
 
+if(is_post_request()) {
+  $salamander = [];
+  $salamander['name'] = $_POST['salamanderName'];
+  $salamander['habitat'] = $_POST['habitat'];
+  $salamander['description'] = $_POST['description'];
+  $result = insert_salamander($salamander);
+  if($result === true) {
+    $new_id = mysqli_insert_id($db);
+    redirect_to(url_for('salamanders/show.php?id=' . $new_id));
+  }
+  else {
+    $errors = $result;
+  }
+  
+} 
+
 $page_title = 'Create Salamander';
 require_once(SHARED_PATH .'/salamander-header.php');
 ?>
@@ -25,7 +41,8 @@ require_once(SHARED_PATH .'/salamander-header.php');
   <div class="subject new">
     <h1>Create Salamander</h1>
 
-    <form action="<?php echo url_for('salamanders/create.php'); ?>" method="post">
+    <?= display_errors($errors) ?>
+    <form action="<?php echo url_for('salamanders/new.php'); ?>" method="post">
       <label for="salamanderName">Name:</label>
       <br>
       <input type="text" name="salamanderName" id="salamanderName">

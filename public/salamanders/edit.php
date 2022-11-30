@@ -16,7 +16,12 @@ if(is_post_request()) {
   $salamander['description'] = $_POST['description'];
 
   $result = update_salamander($salamander);
-  redirect_to(url_for('salamanders/show.php?id=' . $id));
+
+  if($result === true){
+    redirect_to(url_for('salamanders/show.php?id=' . $id));
+  } else {
+    $errors = $result;
+  }
   
 }
 
@@ -32,6 +37,8 @@ require_once(SHARED_PATH .'/salamander-header.php');
   <p><a href=<?=url_for('salamanders/index.php') ?>>&laquo; Back to Salamander List</a></p>
   <div class="subject edit">
     <h1>Edit Salamander</h1>
+
+    <?= display_errors($errors) ?>
 
     <form action="<?php echo url_for('salamanders/edit.php?id=' . h($id)); ?>" method="post">
       <label for="salamanderName">Name:</label>
